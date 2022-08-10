@@ -1,28 +1,61 @@
 <header class="header">
     <nav class="header-navbar">
-        <button class="navbar-toggler"><i class="fa-solid fa-bars"></i></button>
+        <button class="navbar-toggler" onclick=openMenu();><i class="fa-solid fa-bars"></i></button>
         <ul class="navbar">
-            <li class="navbar-item"><a href="#">Accueil</a></li>
-            <li class="navbar-item"><a href="#">Produit</a></li>
-            <li class="navbar-item"><a href="#">Contact</a></li>
+        
+            {% for link in linklists.main-menu.links %}
+
+            <li class="navbar-item">
+                <a href="{{ link.url }}"> {{ link.title }}</a>
+            </li>
+
+            {% endfor %}
         </ul>
+
     </nav>
 
     <div class="header-brand">
-        Logo
+        {% if section.settings.logo %}
+        <img src="{{ section.settings.logo | img_url: '300*300' }}" loading="lazy" alt="{{ shop.name }}">
+        {% if else %}
+        {{ shop.name }}
+        {% endif %}
     </div>
 
     <div class="header-icon">
-        <button>
+        <button onclick=searchBox();>
             <i class="fa-brands fa-searchengin"></i>
         </button>
         <a href="/cart">
             <i class="fa-solid fa-cart-arrow-down"></i>
         </a>
     </div>
-
+    
+    <div id="searchbox" class="searchbox-content">
+        <form action="/search" class="search-bar" role="search">
+            <div class="search-group">
+                <input type="text" class="search-input" name="q" value="{{ search.terms | escape }}" placeholder="Recherche">
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </form> 
+        <button  onclick=searchBox(); class="btn-close"><i class="fa-solid fa-times"></i></button>
+    </div>
 </header>
 
-<br/><br/><br/><br/><br/><br/>
 
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "logo"
+    }
+  ]
+}
+{% endschema %}
 

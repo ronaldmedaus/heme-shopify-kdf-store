@@ -1,4 +1,5 @@
 /* reset CSS*/
+
 html,
 body,
 div,
@@ -129,18 +130,37 @@ table {
     border-spacing: 0
 }
 
+
 // variables
 
 $spacing: 1rem;
+$color-primary: rgba(52, 52, 52, 0.703);
+$font-size: 1rem;
+
+// screens
+$screen-small: 576px;
+$screen-medium: 768px;
+$screen-large: 1024px;
+$screen-xlarge: 1200px;
+
 
 // generic
+
 * {
     box-sizing: border-box;
+    outline: none;
+}
+
+
+//tools
+
+.fa {
+    font-size: $font-size * 1.3;
 }
 
 body {
     font-size: Tahoma, sans-serif;
-    font-size: 1rem;
+    font-size: $font-size;
     color: #333;
     height: 1200px;
 }
@@ -149,19 +169,126 @@ a {
     text-decoration: none;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .header {
-    background: rgb(180, 64, 64);
+    background: #bdbbbb;
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
     max-height: 50px;
     padding: $spacing;
+
+    button,
+    a {
+        background: none;
+        border: none;
+        color: $color-primary;
+    }
 }
 
-button,
-a {
-    background: none;
-    border: none;
-    color: $color-primary;
+.header-navbar {
+    display: flex;
+    flex: 1;
+}
+
+
+.navbar-toggler {
+    cursor: pointer;
+}
+
+.navbar {
+    width: 0;
+    left: -999px;
+    display: block;
+    position: absolute;
+    top: 100%;
+    transition: left 0.4s;
+
+    .navbar-item {
+        display: block;
+        padding: $spacing;
+    }
+}
+
+.navbar.open {
+    width: 100%;
+    left: 0;
+    background: #eee;
+}
+
+.header-brand {
+    display: flex;
+    flex: 4;
+    justify-content: center;
+}
+
+.header-icons {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    a,
+    button {
+        padding: 10px;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+}
+
+
+.searchbox-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    padding: $spacing;
+    justify-content: space-between;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+    &.show {
+        display: flex;
+    }
+
+    .search-bar {
+        width: 100%;
+        display: block;
+    }
+
+    .search-groupe {
+        border: 1px solid #eee;
+    }
+
+    .search-input {
+        border: none;
+        padding: $spacing;
+        font-size: $font-size * 1.5;
+    }
+
+    .search-btn {
+        padding: $spacing;
+        font-size: $font-size * 1.5;
+    }
+}
+
+@media screen and (min-width:$screen-medium) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .navbar {
+        position: relative;
+        left: 0;
+        transition: none;
+        width: 100%;
+
+        .navbar-item {
+            display: inline-flex;
+            padding: 10px;
+        }
+    }
 }
