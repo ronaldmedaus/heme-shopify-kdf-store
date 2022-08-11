@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header container">
     <nav class="header-navbar">
         <button class="navbar-toggler" onclick=openMenu();><i class="fa-solid fa-bars"></i></button>
         <ul class="navbar">
@@ -16,7 +16,7 @@
 
     <div class="header-brand">
         {% if section.settings.logo %}
-        <img src="{{ section.settings.logo | img_url: '300*300' }}" loading="lazy" alt="{{ shop.name }}">
+        <a href="/"><img src="{{ section.settings.logo | img_url: '400*400' }}" loading="lazy" alt="{{ shop.name }}"></a>
         {% if else %}
         {{ shop.name }}
         {% endif %}
@@ -58,4 +58,3 @@
   ]
 }
 {% endschema %}
-

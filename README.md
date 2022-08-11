@@ -26,4 +26,7 @@ You should download the Command Line Tools for Xcode 13.4.
 - J'initialise un Dépôt Git
 
 - Pour gagner du temps, j'instale PREPOS pour compiler automatiment les fichiers pour pouvoir recharger mes fichiers à chaque modification.
+
 - J'utilise également un RESET_CSS uniform sur tout les navigateurs
+
+- J'utilise Slidejs.com pour le slider
