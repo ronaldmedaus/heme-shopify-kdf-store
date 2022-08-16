@@ -16,7 +16,7 @@
 
     <div class="header-brand">
         {% if section.settings.logo %}
-        <a href="/"><img src="{{ section.settings.logo | img_url: '400*400' }}" loading="lazy" alt="{{ shop.name }}"></a>
+        <a href="/"><img src="{{ section.settings.logo | img_url: '400*400' }}" loading="lazy" alt="{{ shop.name .alt}}"></a>
         {% if else %}
         {{ shop.name }}
         {% endif %}

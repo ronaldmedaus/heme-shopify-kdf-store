@@ -351,7 +351,11 @@ button:hover {
         color: #333;
     }
 }
-*/
+
+
+
+
+
 
 .slide_viewer {
     height: 340px;
@@ -471,6 +475,88 @@ a.slide_btn {
         opacity: 1;
     }
 }
+*/
+
+//Slider-test
+
+.slider {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: black;
+
+    input[type="radio"] {
+        position: relative;
+        margin: 0 1rem 1rem 0;
+        transform: scale(1.5);
+        z-index: 100;
+    }
+
+    input[type="radio"]:checked+.slider__content {
+        transition-delay: 0.5s;
+        background-color: black;
+        clip-path: circle(100vw at center);
+    }
+
+    .slider__content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: 0.5s;
+        clip-path: circle(0px at center);
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider__description {
+            position: relative;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            max-width: 1000px;
+
+            h1 {
+                font-size: 5rem;
+            }
+
+            p {
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+                margin: 1rem 0 2rem 0;
+            }
+
+            a {
+                display: inline-block;
+                padding: 10px 15px;
+                background-color: white;
+
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: black;
+                text-decoration: none;
+
+                transition: 0.5s;
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
+
+
 
 @media only screen and (max-width: 767px) {
     .previous_btn {
@@ -489,12 +575,34 @@ a.slide_btn {
     flex-wrap: nowrap;
 }
 
+//image with text
 
 .feature-item {
     flex: 1 0 50%;
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+// collection-list
+
+.collection-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.collection-item {
+    padding: $spacing;
+}
+
+.collection-item a {
+    color: #333;
+}
+
+.collection-title {
+    text-align: center;
+    padding: $spacing;
 }
 
 .feature-item__img {

@@ -108,3 +108,6 @@ $('.slider').each(function () {
 
     advance();
 });
+
+//Examples
+

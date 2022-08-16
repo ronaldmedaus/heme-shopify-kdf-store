@@ -1,0 +1,60 @@
+collection list
+
+<div class="container">
+     <h2 class="section-title">{{ section.settings.section-title }}</h2>
+
+        <div class="collection-list">
+            {% for block in section.blocks %}
+            <div class="collection-item">
+
+
+                {% assign collection = collections[block.settings.featured_collection] %}
+
+               <a href="{{ collection.url }}"><img src="{{ section.settings.image | img_url: '900*' }}" loading="lazy" alt="{{ collection.title.alt }}">
+
+                <h3 class="collection-title">{{ collection.title }}</h3> 
+            </a>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+
+{% schema %}
+{
+  "name": "Liste des collections",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section-title",
+      "label": "titre de la section",
+      "default": "Titre de la section"
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "feature_collection",
+          "label": "Collection en vedette"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title",
+          "default": "Titre du bloc"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Liste des collections",
+      "category": "Collections"
+    }
+  ]
+}
+{% endschema %}
